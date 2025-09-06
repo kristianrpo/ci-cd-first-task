@@ -1,0 +1,26 @@
+name: hello_world
+
+on:
+  push : 
+    branches :
+      - main
+
+jobs:
+  print_info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Print Custom Message
+        run: |
+          echo "Hello, I'm KRISTIAN RESTREPO OSORIO and this is my first workflow!"  
+          echo "Current date and time: $(date)"  
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+
+      - name: Execute Python Script
+        run: python my_script.py
